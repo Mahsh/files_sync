@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "description": "Skill 路由规则配置文件",
+  "rules": [
+    {
+      "intent": "technical_research",
+      "description": "技术调研类请求",
+      "keywords": ["调研", "技术预研", "查一下", "对比", "技术雷达", "扫描技术动态"],
+      "skill": "tech-research",
+      "priority": 10,
+      "fallback_chain": ["default"]
+    },
+    {
+      "intent": "prd_generation",
+      "description": "PRD/需求文档类请求",
+      "keywords": ["PRD", "需求文档", "写个需求", "需求说明", "需求要点"],
+      "skill": "prd-generator",
+      "priority": 8,
+      "fallback_chain": ["default"]
+    },
+    {
+      "intent": "tech_doc",
+      "description": "技术方案类请求",
+      "keywords": ["技术方案", "技术选型", "架构图", "评审", "对比方案"],
+      "skill": "tech-doc",
+      "priority": 7,
+      "fallback_chain": ["default"]
+    },
+    {
+      "intent": "git_summary",
+      "description": "代码变更总结类请求",
+      "keywords": ["提交总结", "change summary", "review改动", "分支总结"],
+      "skill": "git-summary",
+      "priority": 6,
+      "fallback_chain": ["default"]
+    },
+    {
+      "intent": "default",
+      "description": "默认/通用回复",
+      "keywords": [],
+      "skill": null,
+      "priority": 0,
+      "fallback_chain": []
+    }
+  ],
+  "routing_engine": {
+    "mode": "keyword_match",
+    "max_score_threshold": 5,
+    "multi_match_strategy": "highest_priority_wins"
+  }
+}

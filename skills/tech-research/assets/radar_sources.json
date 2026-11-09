@@ -1,0 +1,49 @@
+{
+  "name": "云手机技术雷达关注源",
+  "description": "定期扫描与云手机、音视频、虚拟化、低延迟相关的技术动态",
+  "scanInterval": "每周一上午 9:00",
+  "filters": [
+    "云手机",
+    "Cloud Phone",
+    "WebRTC",
+    "音视频编解码",
+    "虚拟化",
+    "容器化",
+    "低延迟",
+    "实时渲染",
+    "Android 虚拟化",
+    "GPU 虚拟化"
+  ],
+  "sources": [
+    {
+      "name": "WebRTC 官方博客",
+      "type": "blog",
+      "url": "https://webrtc.org/blog/",
+      "keywords": ["WebRTC", "release", "new features"]
+    },
+    {
+      "name": "Chromium Blog",
+      "type": "blog",
+      "url": "https://blog.chromium.org/",
+      "keywords": ["Chromium", "release", "WebRTC"]
+    },
+    {
+      "name": "Android Developers Blog",
+      "type": "blog",
+      "url": "https://android-developers.googleblog.com/",
+      "keywords": ["Android", "virtualization", "performance"]
+    },
+    {
+      "name": "FFmpeg Release",
+      "type": "github",
+      "url": "https://github.com/FFmpeg/FFmpeg/releases",
+      "keywords": ["release", "codec"]
+    },
+    {
+      "name": "Google Cloud 云游戏/云手机相关",
+      "type": "blog",
+      "url": "https://cloud.google.com/blog/",
+      "keywords": ["cloud gaming", "streaming", "Android"]
+    }
+  ]
+}
