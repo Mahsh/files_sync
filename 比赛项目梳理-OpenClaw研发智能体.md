@@ -140,16 +140,21 @@ PC 生成文档 → sync_files/ → sync.sh（commit → pull --rebase → push�
 - 技术雷达已产出两期（2026-07-01、2026-11-09）
 - files_sync 双向同步链路已打通（PC ↔ GitHub ↔ 移动端，有真实同步提交记录）
 - 定时任务链路修复完成（技术雷达 / 每日复盘 / 晨间提醒均验证可投递）
+- **git-summary 已对齐"两次提交之间"语义**：SKILL.md 重写（三模式：commit 区间 / 分支 / 工作区）、summary_template 增加起点终点 commit 字段、新增大仓库输出控制规则与五层影响面；实测 `24b6ed4..283133f` 走通并产出真实总结
+- **5 个 Skill 全部发布到 ClawHub（@mahsh）**：dify-rag v1.0.0、tech-research v1.0.0 已公开；git-two-commit-summary / prd-generator-cm / tech-design-doc v1.0.0 扫描 CLEAN、待审核上线
+- **文档落盘路径统一**：四个业务 Skill 归档目录统一为 `sync_files/{research,prd,tech-doc,git-summaries}/`（无同步目录的端自动回退 memory/），GitHub 同步与归档一步到位
+- **移动端部署指南已产出**：`sync_files/移动端部署指南.md`（安装 / Dify 配置 / GitHub 接入 / 验收清单 / 演示动线 / 故障速查）
 
 ### 待完善 ⏳
 
 | 事项 | 说明 |
 |------|------|
-| git-summary 表述微调 | 现有 SKILL.md 以"分支对比"为主线，需把"**两次提交之间**"补进触发词与工作流（与项目描述对齐） |
-| ClawHub 发布推进 | dify-rag / tech-research 已准备发布（分类问题已解决），prd-generator / tech-doc / git-summary 待发布 |
-| 移动端配置 | 移动端安装 Skill 后需配置 TOOLS.md 的 Dify 密钥与 dataset_id；移动端是否有 Python 环境待确认（影响 dify-rag search.py 运行） |
-| git-summary 无独立脚本 | 当前靠 SKILL.md 流程指引 + exec 执行 git 命令，可考虑固化 `scripts/diff_collect.sh` 提升稳定性 |
-| 演示场景脚本 | 答辩需要一条端到端演示动线（建议：移动端提需求 → PC 生成 PRD → GitHub 同步回移动端查看） |
+| ClawHub 三个新 skill 上线 | git-two-commit-summary / prd-generator-cm / tech-design-doc 扫描已 CLEAN，等 `pending.publication` 转公开即可 install |
+| 移动端实机部署 | 按《移动端部署指南》执行；需用户确认：移动端有无 Python、有无 SSH key 能力 |
+| 历史文档迁移决策 | `memory/research/` 与 `memory/knowledge-base/` 的历史产物是否复制进 `sync_files/`（不迁移则移动端看不到历史） |
+| 演示场景脚本 | 答辩端到端动线已设计（见部署指南第六节），建议实机走一遍计时 |
+
+> ⚠️ **一处实现与文档不一致（已记录，待决策是否改代码）**：dify-rag 的 SKILL.md 写"从 TOOLS.md 读取配置"，但 `search.py` 实际只读**环境变量或命令行参数**，不解析 TOOLS.md。因此装完 skill 后必须显式注入 `DIFY_API_KEY` / `DIFY_DATASET_ID` 环境变量，否则报「缺少 API Key」。部署指南已按真实行为写明。
 
 ## 八、可选扩展点
 
